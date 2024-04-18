@@ -33,7 +33,6 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.dataGridViewBook = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonDel = new System.Windows.Forms.Button();
             this.numericUpDownbQuantity = new System.Windows.Forms.NumericUpDown();
@@ -50,10 +49,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.dataGridViewBook = new System.Windows.Forms.DataGridView();
+            this.textBoxBookId = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBook)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownbQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBook)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -103,18 +104,10 @@
             this.buttonSearch.Text = "Ara";
             this.buttonSearch.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewBook
-            // 
-            this.dataGridViewBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBook.Location = new System.Drawing.Point(12, 153);
-            this.dataGridViewBook.Name = "dataGridViewBook";
-            this.dataGridViewBook.Size = new System.Drawing.Size(1102, 350);
-            this.dataGridViewBook.TabIndex = 4;
-            this.dataGridViewBook.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewBook_CellFormatting);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel2.Controls.Add(this.textBoxBookId);
             this.panel2.Controls.Add(this.buttonDel);
             this.panel2.Controls.Add(this.numericUpDownbQuantity);
             this.panel2.Controls.Add(this.buttonCancel);
@@ -144,6 +137,7 @@
             this.buttonDel.TabIndex = 23;
             this.buttonDel.Text = "Sil";
             this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
             // numericUpDownbQuantity
             // 
@@ -162,6 +156,7 @@
             this.buttonCancel.TabIndex = 22;
             this.buttonCancel.Text = "İptal Et";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonUpdate
             // 
@@ -172,6 +167,7 @@
             this.buttonUpdate.TabIndex = 21;
             this.buttonUpdate.Text = "Güncelle";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // textBoxbPrice
             // 
@@ -275,6 +271,26 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Kitap Adı: ";
             // 
+            // dataGridViewBook
+            // 
+            this.dataGridViewBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBook.Location = new System.Drawing.Point(12, 153);
+            this.dataGridViewBook.Name = "dataGridViewBook";
+            this.dataGridViewBook.RowHeadersWidth = 50;
+            this.dataGridViewBook.Size = new System.Drawing.Size(1102, 350);
+            this.dataGridViewBook.TabIndex = 4;
+            this.dataGridViewBook.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBook_CellClick);
+            this.dataGridViewBook.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewBook_CellFormatting);
+            // 
+            // textBoxBookId
+            // 
+            this.textBoxBookId.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxBookId.Location = new System.Drawing.Point(17, 235);
+            this.textBoxBookId.Name = "textBoxBookId";
+            this.textBoxBookId.Size = new System.Drawing.Size(126, 35);
+            this.textBoxBookId.TabIndex = 24;
+            this.textBoxBookId.Visible = false;
+            // 
             // ViewBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,10 +309,10 @@
             this.Load += new System.EventHandler(this.ViewBooks_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBook)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownbQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,7 +325,6 @@
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.DataGridView dataGridViewBook;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.NumericUpDown numericUpDownbQuantity;
         private System.Windows.Forms.Button buttonCancel;
@@ -326,5 +341,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonDel;
+        private System.Windows.Forms.DataGridView dataGridViewBook;
+        private System.Windows.Forms.TextBox textBoxBookId;
     }
 }

@@ -187,7 +187,7 @@
             this.numericUpDownbQuantity.Size = new System.Drawing.Size(327, 35);
             this.numericUpDownbQuantity.TabIndex = 6;
             // 
-            // AddBook
+            // AddBookPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -207,7 +207,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "AddBook";
+            this.Name = "AddBookPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddBook";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownbQuantity)).EndInit();

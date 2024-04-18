@@ -25,7 +25,7 @@ namespace LibraryManagementSystem
             string bookName = textBoxbName.Text;
             string bookAuthor = textBoxbAuthor.Text;
             string bookPublic = textBoxbPublic.Text;
-            string bookDate = dateTimePickerbDate.Value.ToString("yyyy-mm-dd");
+            string bookDate = dateTimePickerbDate.Value.ToString("yyyy-MM-dd");
             string bPriceStr = textBoxbPrice.Text;
             string bQuantityStr = numericUpDownbQuantity.Text;
             int bookPrice;

@@ -54,7 +54,7 @@ namespace LibraryManagementSystem.database
 
         public MySqlConnection GetConn()
         {
-            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=librarysystemdb;Username=root;Password="))
+            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=librarysystemdb;Username=root;Password=; convert zero datetime=True"))
             {
                 try
                 {
@@ -102,7 +102,7 @@ namespace LibraryManagementSystem.database
 
         public DataTable GetBook()
         {
-            string query = "SELECT bookName, bookAuthor, bookPublic, bookDate, bookPrice, bookQuantity FROM books";
+            string query = "SELECT * FROM books";
             DataTable dataTable = new DataTable();
 
             using (MySqlConnection connection = GetConn())
@@ -117,25 +117,6 @@ namespace LibraryManagementSystem.database
                     }
                 }
             }
-
-            dataTable.Columns.Add("ParsedDate", typeof(DateTime));
-
-            foreach (DataRow row in dataTable.Rows)
-            {
-                DateTime parsedDate;
-                if (DateTime.TryParseExact(row["bookDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
-                {
-                    row["ParsedDate"] = parsedDate;
-                }
-                else
-                {
-                    row["ParsedDate"] = DateTime.MinValue;
-                }
-            }
-
-            dataTable.Columns.Remove("bookDate");
-
-            dataTable.Columns["ParsedDate"].ColumnName = "bookDate";
 
             return dataTable;
         }
@@ -161,6 +142,73 @@ namespace LibraryManagementSystem.database
                     Console.WriteLine($"Rows affected: {rowsAffected}");
 
                     return true;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                return false;
+            }
+        }
+
+        public bool UpdateBook(int bookId, string bookName, string bookAuthor, string bookPublic, string bookDate, int bookPrice, int bookQuantity)
+        {
+            string query = "UPDATE books SET bookName = @bookName, bookAuthor = @bookAuthor, bookPublic = @bookPublic, bookDate = @bookDate, bookPrice = @bookPrice, bookQuantity = @bookQuantity WHERE bookId = @bookId";
+
+            try
+            {
+                using (MySqlConnection connection = GetConn())
+                {
+                    connection.Open();
+                    
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@bookId", bookId);
+                        cmd.Parameters.AddWithValue("@bookName", bookName);
+                        cmd.Parameters.AddWithValue("@bookAuthor", bookAuthor);
+                        cmd.Parameters.AddWithValue("@bookPublic", bookPublic);
+                        cmd.Parameters.AddWithValue("@bookDate", bookDate);
+                        cmd.Parameters.AddWithValue("@bookPrice", bookPrice);
+                        cmd.Parameters.AddWithValue("@bookQuantity", bookQuantity);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        Console.WriteLine($"Rows affected: {rowsAffected}");
+
+                        return true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                return false;
+            }
+
+        }
+
+        public bool DeleteBook(int bookId)
+        {
+            string query = "DELETE FROM books WHERE bookId = @bookId";
+
+            try
+            {
+                using (MySqlConnection connection = GetConn())
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@bookId", bookId);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        Console.WriteLine($"Rows affected: {rowsAffected}");
+
+                        return true;
+                    }
                 }
             }
             catch (MySqlException ex)
