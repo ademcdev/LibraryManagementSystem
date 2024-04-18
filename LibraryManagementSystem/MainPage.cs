@@ -23,9 +23,15 @@ namespace LibraryManagementSystem
 
         private string msg, caption, prompt, title;
 
+        private void AddStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddStudent addStudent = new AddStudent();
+            addStudent.Show();
+        }
+
         private void addBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBook addBook = new AddBook();
+            AddBookPage addBook = new AddBookPage();
             addBook.Show();
         }
 

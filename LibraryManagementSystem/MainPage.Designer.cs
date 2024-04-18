@@ -34,7 +34,7 @@
             this.addBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.öğrenciEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.öğrencileriGörüntüleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,7 +105,7 @@
             // studentsToolStripMenuItem
             // 
             this.studentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.öğrenciEkleToolStripMenuItem,
+            this.AddStudentToolStripMenuItem,
             this.öğrencileriGörüntüleToolStripMenuItem});
             this.studentsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("studentsToolStripMenuItem.Image")));
             this.studentsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -113,13 +113,14 @@
             this.studentsToolStripMenuItem.Size = new System.Drawing.Size(106, 66);
             this.studentsToolStripMenuItem.Text = "Öğrenciler";
             // 
-            // öğrenciEkleToolStripMenuItem
+            // AddStudentToolStripMenuItem
             // 
-            this.öğrenciEkleToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("öğrenciEkleToolStripMenuItem.Image")));
-            this.öğrenciEkleToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.öğrenciEkleToolStripMenuItem.Name = "öğrenciEkleToolStripMenuItem";
-            this.öğrenciEkleToolStripMenuItem.Size = new System.Drawing.Size(204, 38);
-            this.öğrenciEkleToolStripMenuItem.Text = "Öğrenci Ekle";
+            this.AddStudentToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddStudentToolStripMenuItem.Image")));
+            this.AddStudentToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.AddStudentToolStripMenuItem.Name = "AddStudentToolStripMenuItem";
+            this.AddStudentToolStripMenuItem.Size = new System.Drawing.Size(204, 38);
+            this.AddStudentToolStripMenuItem.Text = "Öğrenci Ekle";
+            this.AddStudentToolStripMenuItem.Click += new System.EventHandler(this.AddStudentToolStripMenuItem_Click);
             // 
             // öğrencileriGörüntüleToolStripMenuItem
             // 
@@ -291,7 +292,7 @@
         private System.Windows.Forms.ToolStripMenuItem borrowBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bookDetailsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem öğrenciEkleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem öğrencileriGörüntüleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;

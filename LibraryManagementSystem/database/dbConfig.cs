@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Globalization;
 
 namespace LibraryManagementSystem.database
 {
@@ -82,6 +84,78 @@ namespace LibraryManagementSystem.database
                     cmd.Parameters.AddWithValue("@bookDate", bookDate);
                     cmd.Parameters.AddWithValue("@bookPrice", bookPrice);
                     cmd.Parameters.AddWithValue("@bookQuantity", bookQuantity);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    Console.WriteLine($"Rows affected: {rowsAffected}");
+
+                    return true;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                return false;
+            }
+        }
+
+
+        public DataTable GetBook()
+        {
+            string query = "SELECT bookName, bookAuthor, bookPublic, bookDate, bookPrice, bookQuantity FROM books";
+            DataTable dataTable = new DataTable();
+
+            using (MySqlConnection connection = GetConn())
+            {
+                connection.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                }
+            }
+
+            dataTable.Columns.Add("ParsedDate", typeof(DateTime));
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                DateTime parsedDate;
+                if (DateTime.TryParseExact(row["bookDate"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+                {
+                    row["ParsedDate"] = parsedDate;
+                }
+                else
+                {
+                    row["ParsedDate"] = DateTime.MinValue;
+                }
+            }
+
+            dataTable.Columns.Remove("bookDate");
+
+            dataTable.Columns["ParsedDate"].ColumnName = "bookDate";
+
+            return dataTable;
+        }
+
+        public bool AddStudent(int studentNo, string studentName, string studentSurname, string studentSection, int studentPhone)
+        {
+            string query = "INSERT INTO students (studentNo, studentName, studentSurname, studentSection, studentPhone) VALUES (@studentNo, @studentName, @studentSurname, @studentSection, @studentPhone)";
+            try
+            {
+                using (MySqlConnection connection = GetConn())
+                {
+                    connection.Open();
+
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@studentNo", studentNo);
+                    cmd.Parameters.AddWithValue("@studentName", studentName);
+                    cmd.Parameters.AddWithValue("@studentSurname", studentSurname);
+                    cmd.Parameters.AddWithValue("@studentSection", studentSection);
+                    cmd.Parameters.AddWithValue("@studentPhone", studentPhone);
+
 
                     int rowsAffected = cmd.ExecuteNonQuery();
                     Console.WriteLine($"Rows affected: {rowsAffected}");
