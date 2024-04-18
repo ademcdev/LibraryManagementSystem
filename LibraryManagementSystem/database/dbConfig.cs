@@ -121,7 +121,7 @@ namespace LibraryManagementSystem.database
             return dataTable;
         }
 
-        public bool AddStudent(int studentNo, string studentName, string studentSurname, string studentSection, int studentPhone)
+        public bool AddStudent(long studentNo, string studentName, string studentSurname, string studentSection, long studentPhone)
         {
             string query = "INSERT INTO students (studentNo, studentName, studentSurname, studentSection, studentPhone) VALUES (@studentNo, @studentName, @studentSurname, @studentSection, @studentPhone)";
             try
@@ -150,6 +150,25 @@ namespace LibraryManagementSystem.database
 
                 return false;
             }
+        }
+
+        public DataTable GetStudent()
+        {
+            string query = "SELECT studentNo, studentName, studentSurname, studentSection, studentPhone FROM students";
+            DataTable dataTable = new DataTable();
+            using (MySqlConnection connection = GetConn())
+            {
+                connection.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                }
+            }
+            return dataTable;
         }
 
         public bool UpdateBook(int bookId, string bookName, string bookAuthor, string bookPublic, string bookDate, int bookPrice, int bookQuantity)
@@ -217,6 +236,42 @@ namespace LibraryManagementSystem.database
 
                 return false;
             }
+        }
+
+        public int GetTotalBookCount()
+        {
+            string query = "SELECT COUNT(*) FROM books";
+            int totalBooks;
+
+            using (MySqlConnection connection = GetConn())
+            {
+                connection.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    totalBooks = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+
+            return totalBooks;
+        }
+
+        public int GetTotalStudentCount()
+        {
+            string query = "SELECT COUNT(*) FROM students";
+            int totalStudents;
+
+            using (MySqlConnection connection = GetConn())
+            {
+                connection.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    totalStudents = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+
+            return totalStudents;
         }
     }
 }

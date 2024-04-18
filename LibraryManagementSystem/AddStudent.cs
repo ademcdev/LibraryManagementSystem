@@ -26,10 +26,8 @@ namespace LibraryManagementSystem
             string studentSurname = textBoxSurname.Text;
             string studentSection = textBoxBolum.Text;
             string studentPhonestr = textBoxNumber.Text;
-            int studentNo;
-            int.TryParse(studentNostr, out studentNo);
-            int studentPhone;
-            int.TryParse(studentPhonestr, out studentPhone);
+            long.TryParse(studentNostr, out long studentNo);
+            long.TryParse(studentPhonestr, out long studentPhone);
 
             bool studentAdded = db.AddStudent(studentNo, studentName, studentSurname, studentSection, studentPhone);
 

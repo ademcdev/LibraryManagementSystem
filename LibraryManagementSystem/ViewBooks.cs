@@ -112,5 +112,10 @@ namespace LibraryManagementSystem
             dataTable = db.GetBook();
             dataGridViewBook.DataSource = dataTable;
         }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -23,10 +23,33 @@ namespace LibraryManagementSystem
 
         private string msg, caption, prompt, title;
 
+        private void MainPage_Load(object sender, EventArgs e)
+        {
+            database.dbConfig db = new database.dbConfig();
+
+            int TotalBookCount = db.GetTotalBookCount();
+            int TotalStudentCount = db.GetTotalStudentCount();
+
+            labelBookCount.Text = TotalBookCount.ToString();
+            labelMemberCount.Text = TotalStudentCount.ToString();
+        }
+
         private void AddStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddStudent addStudent = new AddStudent();
             addStudent.Show();
+        }
+
+        private void öğrencileriGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewStudent viewStudent = new ViewStudent();
+            viewStudent.Show();
+        }
+
+        private void returnBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReturnBook returnBook = new ReturnBook();
+            returnBook.Show();
         }
 
         private void addBookToolStripMenuItem_Click(object sender, EventArgs e)

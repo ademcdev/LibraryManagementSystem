@@ -43,15 +43,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelBookCount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.labelAuthorCount = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelMemberCount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.menuStripMain.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +64,7 @@
             this.exitToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1288, 70);
+            this.menuStripMain.Size = new System.Drawing.Size(1301, 70);
             this.menuStripMain.TabIndex = 8;
             this.menuStripMain.Text = "menuStrip1";
             // 
@@ -88,7 +84,7 @@
             this.addBookToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addBookToolStripMenuItem.Image")));
             this.addBookToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.addBookToolStripMenuItem.Name = "addBookToolStripMenuItem";
-            this.addBookToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.addBookToolStripMenuItem.Size = new System.Drawing.Size(189, 38);
             this.addBookToolStripMenuItem.Text = "Kitap Ekle";
             this.addBookToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.addBookToolStripMenuItem.Click += new System.EventHandler(this.addBookToolStripMenuItem_Click);
@@ -98,7 +94,7 @@
             this.showBooksToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showBooksToolStripMenuItem.Image")));
             this.showBooksToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.showBooksToolStripMenuItem.Name = "showBooksToolStripMenuItem";
-            this.showBooksToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.showBooksToolStripMenuItem.Size = new System.Drawing.Size(189, 38);
             this.showBooksToolStripMenuItem.Text = "Kitapları Görüntüle";
             this.showBooksToolStripMenuItem.Click += new System.EventHandler(this.showBooksToolStripMenuItem_Click);
             // 
@@ -129,6 +125,7 @@
             this.öğrencileriGörüntüleToolStripMenuItem.Name = "öğrencileriGörüntüleToolStripMenuItem";
             this.öğrencileriGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(204, 38);
             this.öğrencileriGörüntüleToolStripMenuItem.Text = "Öğrencileri Görüntüle";
+            this.öğrencileriGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.öğrencileriGörüntüleToolStripMenuItem_Click);
             // 
             // borrowBookToolStripMenuItem
             // 
@@ -145,6 +142,7 @@
             this.returnBookToolStripMenuItem.Name = "returnBookToolStripMenuItem";
             this.returnBookToolStripMenuItem.Size = new System.Drawing.Size(130, 66);
             this.returnBookToolStripMenuItem.Text = "Kitap Geri Getir";
+            this.returnBookToolStripMenuItem.Click += new System.EventHandler(this.returnBookToolStripMenuItem_Click);
             // 
             // bookDetailsToolStripMenuItem1
             // 
@@ -168,16 +166,16 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.labelBookCount);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(34, 106);
+            this.panel2.Location = new System.Drawing.Point(62, 110);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(440, 291);
+            this.panel2.Size = new System.Drawing.Size(335, 129);
             this.panel2.TabIndex = 9;
             // 
             // labelBookCount
             // 
             this.labelBookCount.AutoSize = true;
             this.labelBookCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelBookCount.Location = new System.Drawing.Point(136, 149);
+            this.labelBookCount.Location = new System.Drawing.Point(155, 75);
             this.labelBookCount.Name = "labelBookCount";
             this.labelBookCount.Size = new System.Drawing.Size(23, 31);
             this.labelBookCount.TabIndex = 1;
@@ -187,57 +185,27 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(136, 24);
+            this.label1.Location = new System.Drawing.Point(92, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(156, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kitap Sayısı";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel3.Controls.Add(this.labelAuthorCount);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(509, 106);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(440, 291);
-            this.panel3.TabIndex = 10;
-            // 
-            // labelAuthorCount
-            // 
-            this.labelAuthorCount.AutoSize = true;
-            this.labelAuthorCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelAuthorCount.Location = new System.Drawing.Point(140, 149);
-            this.labelAuthorCount.Name = "labelAuthorCount";
-            this.labelAuthorCount.Size = new System.Drawing.Size(23, 31);
-            this.labelAuthorCount.TabIndex = 3;
-            this.labelAuthorCount.Text = "-";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(140, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 31);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Yazar Sayısı";
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel4.Controls.Add(this.labelMemberCount);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(985, 106);
+            this.panel4.Location = new System.Drawing.Point(62, 269);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(440, 291);
+            this.panel4.Size = new System.Drawing.Size(335, 129);
             this.panel4.TabIndex = 10;
             // 
             // labelMemberCount
             // 
             this.labelMemberCount.AutoSize = true;
             this.labelMemberCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelMemberCount.Location = new System.Drawing.Point(159, 149);
+            this.labelMemberCount.Location = new System.Drawing.Point(155, 74);
             this.labelMemberCount.Name = "labelMemberCount";
             this.labelMemberCount.Size = new System.Drawing.Size(23, 31);
             this.labelMemberCount.TabIndex = 3;
@@ -247,7 +215,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(159, 24);
+            this.label5.Location = new System.Drawing.Point(102, 24);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 31);
             this.label5.TabIndex = 2;
@@ -259,9 +227,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1288, 733);
+            this.ClientSize = new System.Drawing.Size(1301, 733);
             this.ControlBox = false;
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStripMain);
@@ -272,12 +239,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainPage_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -296,12 +262,9 @@
         private System.Windows.Forms.ToolStripMenuItem öğrencileriGörüntüleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelBookCount;
-        private System.Windows.Forms.Label labelAuthorCount;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelMemberCount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem showBooksToolStripMenuItem;
