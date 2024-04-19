@@ -134,6 +134,7 @@
             this.borrowBookToolStripMenuItem.Name = "borrowBookToolStripMenuItem";
             this.borrowBookToolStripMenuItem.Size = new System.Drawing.Size(136, 66);
             this.borrowBookToolStripMenuItem.Text = "Kitap Ödünç Ver";
+            this.borrowBookToolStripMenuItem.Click += new System.EventHandler(this.borrowBookToolStripMenuItem_Click);
             // 
             // returnBookToolStripMenuItem
             // 

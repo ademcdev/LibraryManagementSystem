@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Globalization;
+using System.Net;
 
 namespace LibraryManagementSystem.database
 {
@@ -154,7 +155,7 @@ namespace LibraryManagementSystem.database
 
         public DataTable GetStudent()
         {
-            string query = "SELECT studentNo, studentName, studentSurname, studentSection, studentPhone FROM students";
+            string query = "SELECT * FROM students";
             DataTable dataTable = new DataTable();
             using (MySqlConnection connection = GetConn())
             {
@@ -221,6 +222,72 @@ namespace LibraryManagementSystem.database
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@bookId", bookId);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        Console.WriteLine($"Rows affected: {rowsAffected}");
+
+                        return true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                return false;
+            }
+        }
+
+        public bool UpdateStudent(int id, long studentNo, string studentName, string studentSurname, string studentSection, long studentPhone)
+        {
+            string query = "UPDATE students SET studentNo = @studentNo, studentName = @studentName, studentSurname = @studentSurname, studentSection = @studentSection, studentPhone = @studentPhone WHERE id = @id";
+
+            try
+            {
+                using (MySqlConnection connection = GetConn())
+
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@studentNo", studentNo);
+                        cmd.Parameters.AddWithValue("@studentName", studentName);
+                        cmd.Parameters.AddWithValue("@studentSurname", studentSurname);
+                        cmd.Parameters.AddWithValue("@studentSection", studentSection);
+                        cmd.Parameters.AddWithValue("@studentPhone", studentPhone);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        Console.WriteLine($"Rows affected: {rowsAffected}");
+
+                        return true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                return false;
+            }
+        }
+
+        public bool DeleteStudent(int id)
+        {
+            string query = "DELETE FROM students WHERE id = @id";
+
+            try
+            {
+                using (MySqlConnection connection = GetConn())
+                {
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 

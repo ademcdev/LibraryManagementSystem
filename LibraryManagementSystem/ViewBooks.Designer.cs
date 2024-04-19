@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBoxBookId = new System.Windows.Forms.TextBox();
             this.buttonDel = new System.Windows.Forms.Button();
             this.numericUpDownbQuantity = new System.Windows.Forms.NumericUpDown();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewBook = new System.Windows.Forms.DataGridView();
-            this.textBoxBookId = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownbQuantity)).BeginInit();
@@ -83,7 +83,6 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(297, 38);
             this.textBoxSearch.TabIndex = 1;
-            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // label2
             // 
@@ -97,6 +96,7 @@
             // 
             // buttonSearch
             // 
+            this.buttonSearch.Enabled = false;
             this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.buttonSearch.Location = new System.Drawing.Point(726, 90);
             this.buttonSearch.Name = "buttonSearch";
@@ -104,6 +104,7 @@
             this.buttonSearch.TabIndex = 3;
             this.buttonSearch.Text = "Ara";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // panel2
             // 
@@ -128,6 +129,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1102, 287);
             this.panel2.TabIndex = 5;
+            // 
+            // textBoxBookId
+            // 
+            this.textBoxBookId.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxBookId.Location = new System.Drawing.Point(17, 235);
+            this.textBoxBookId.Name = "textBoxBookId";
+            this.textBoxBookId.Size = new System.Drawing.Size(126, 35);
+            this.textBoxBookId.TabIndex = 24;
+            this.textBoxBookId.Visible = false;
             // 
             // buttonDel
             // 
@@ -282,15 +292,6 @@
             this.dataGridViewBook.TabIndex = 4;
             this.dataGridViewBook.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBook_CellClick);
             this.dataGridViewBook.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewBook_CellFormatting);
-            // 
-            // textBoxBookId
-            // 
-            this.textBoxBookId.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBoxBookId.Location = new System.Drawing.Point(17, 235);
-            this.textBoxBookId.Name = "textBoxBookId";
-            this.textBoxBookId.Size = new System.Drawing.Size(126, 35);
-            this.textBoxBookId.TabIndex = 24;
-            this.textBoxBookId.Visible = false;
             // 
             // ViewBooks
             // 

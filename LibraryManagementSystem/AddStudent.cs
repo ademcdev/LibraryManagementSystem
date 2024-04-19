@@ -25,7 +25,7 @@ namespace LibraryManagementSystem
             string studentName = textBoxName.Text;
             string studentSurname = textBoxSurname.Text;
             string studentSection = textBoxBolum.Text;
-            string studentPhonestr = textBoxNumber.Text;
+            string studentPhonestr = textBoxTel.Text;
             long.TryParse(studentNostr, out long studentNo);
             long.TryParse(studentPhonestr, out long studentPhone);
 

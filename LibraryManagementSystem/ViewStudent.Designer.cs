@@ -45,6 +45,7 @@
             this.labelStudentName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBoxId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,6 +63,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.Controls.Add(this.textBoxId);
             this.panel1.Controls.Add(this.buttonDelete);
             this.panel1.Controls.Add(this.textBoxTel);
             this.panel1.Controls.Add(this.labelpNumber);
@@ -83,7 +85,7 @@
             // buttonDelete
             // 
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonDelete.Location = new System.Drawing.Point(688, 209);
+            this.buttonDelete.Location = new System.Drawing.Point(512, 209);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(127, 63);
             this.buttonDelete.TabIndex = 38;
@@ -112,7 +114,7 @@
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonCancel.Location = new System.Drawing.Point(492, 209);
+            this.buttonCancel.Location = new System.Drawing.Point(680, 209);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(127, 63);
             this.buttonCancel.TabIndex = 35;
@@ -123,7 +125,7 @@
             // buttonUpdate
             // 
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonUpdate.Location = new System.Drawing.Point(287, 209);
+            this.buttonUpdate.Location = new System.Drawing.Point(348, 209);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(127, 63);
             this.buttonUpdate.TabIndex = 34;
@@ -222,6 +224,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Öğrencileri Görüntüle";
             // 
+            // textBoxId
+            // 
+            this.textBoxId.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxId.Location = new System.Drawing.Point(14, 264);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(126, 35);
+            this.textBoxId.TabIndex = 39;
+            this.textBoxId.Visible = false;
+            // 
             // ViewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,5 +272,6 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxId;
     }
 }

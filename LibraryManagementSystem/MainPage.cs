@@ -52,6 +52,12 @@ namespace LibraryManagementSystem
             returnBook.Show();
         }
 
+        private void borrowBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BorrowBook borrowBook = new BorrowBook();
+            borrowBook.Show();
+        }
+
         private void addBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddBookPage addBook = new AddBookPage();

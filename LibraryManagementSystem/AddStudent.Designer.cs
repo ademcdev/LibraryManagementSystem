@@ -40,7 +40,7 @@
             this.labelStudentName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelpNumber = new System.Windows.Forms.Label();
-            this.textBoxpNo = new System.Windows.Forms.TextBox();
+            this.textBoxTel = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonCancel
@@ -158,20 +158,20 @@
             this.labelpNumber.TabIndex = 24;
             this.labelpNumber.Text = "Telefon No:";
             // 
-            // textBoxpNo
+            // textBoxTel
             // 
-            this.textBoxpNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBoxpNo.Location = new System.Drawing.Point(275, 282);
-            this.textBoxpNo.Name = "textBoxpNo";
-            this.textBoxpNo.Size = new System.Drawing.Size(327, 35);
-            this.textBoxpNo.TabIndex = 25;
+            this.textBoxTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBoxTel.Location = new System.Drawing.Point(275, 282);
+            this.textBoxTel.Name = "textBoxTel";
+            this.textBoxTel.Size = new System.Drawing.Size(327, 35);
+            this.textBoxTel.TabIndex = 25;
             // 
             // AddStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBoxpNo);
+            this.Controls.Add(this.textBoxTel);
             this.Controls.Add(this.labelpNumber);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
@@ -204,6 +204,6 @@
         private System.Windows.Forms.Label labelStudentName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelpNumber;
-        private System.Windows.Forms.TextBox textBoxpNo;
+        private System.Windows.Forms.TextBox textBoxTel;
     }
 }
