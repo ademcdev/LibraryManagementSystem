@@ -38,7 +38,6 @@
             this.öğrencileriGörüntüleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bookDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelBookCount = new System.Windows.Forms.Label();
@@ -60,7 +59,6 @@
             this.studentsToolStripMenuItem,
             this.borrowBookToolStripMenuItem,
             this.returnBookToolStripMenuItem,
-            this.bookDetailsToolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
@@ -144,14 +142,6 @@
             this.returnBookToolStripMenuItem.Size = new System.Drawing.Size(130, 66);
             this.returnBookToolStripMenuItem.Text = "Kitap Geri Getir";
             this.returnBookToolStripMenuItem.Click += new System.EventHandler(this.returnBookToolStripMenuItem_Click);
-            // 
-            // bookDetailsToolStripMenuItem1
-            // 
-            this.bookDetailsToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("bookDetailsToolStripMenuItem1.Image")));
-            this.bookDetailsToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.bookDetailsToolStripMenuItem1.Name = "bookDetailsToolStripMenuItem1";
-            this.bookDetailsToolStripMenuItem1.Size = new System.Drawing.Size(127, 66);
-            this.bookDetailsToolStripMenuItem1.Text = "Kitap Detayları";
             // 
             // exitToolStripMenuItem
             // 
@@ -258,7 +248,6 @@
         private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrowBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnBookToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bookDetailsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem AddStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem öğrencileriGörüntüleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;

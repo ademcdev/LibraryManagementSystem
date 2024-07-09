@@ -21,7 +21,7 @@ namespace LibraryManagementSystem
             MessageBoxManager.Yes = "Evet";
             MessageBoxManager.No = "Hayır";
             MessageBoxManager.Register();
-            Application.Run(new MainPage());
+            Application.Run(new LoginPage());
         }
     }
 }

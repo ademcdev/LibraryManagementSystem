@@ -21,7 +21,7 @@ namespace LibraryManagementSystem
             //menuStripMain.BackColor = Color.Transparent;
         }
 
-        private string msg, caption, prompt, title;
+        private string msg, caption;
 
         private void MainPage_Load(object sender, EventArgs e)
         {

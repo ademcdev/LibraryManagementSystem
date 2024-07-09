@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystem.database;
 using Microsoft.VisualBasic;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace LibraryManagementSystem
 {
@@ -17,57 +18,69 @@ namespace LibraryManagementSystem
         public LoginPage()
         {
             InitializeComponent();
+            InitializeTextBoxPlaceholders();
             AcceptButton = buttonLogin;
         }
 
-        private string msg, caption, prompt, title;
+        private Dictionary<TextBox, string> placeholders = new Dictionary<TextBox, string>();
+        database.dbConfig db = new database.dbConfig();
 
-        private void textBoxUsername_MouseClick(object sender, MouseEventArgs e)
+        private void InitializeTextBoxPlaceholders()
         {
-            if (textBoxUsername.Text == "Kullanıcı Adı...")
+            SetPlaceholder(textBoxEmail, "E-postanızı giriniz...");
+            SetPlaceholder(textBoxPassword, "Şifreniz");
+        }
+
+        private void SetPlaceholder(TextBox textBox, string placeholder)
+        {
+            placeholders[textBox] = placeholder;
+            textBox.Text = placeholder;
+            textBox.ForeColor = Color.Gray;
+            textBox.GotFocus += RemovePlaceholder;
+            textBox.LostFocus += SetPlaceholder;
+        }
+
+        private void RemovePlaceholder(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == placeholders[textBox])
             {
-                textBoxUsername.Clear();
+                textBox.Text = "";
+                textBox.ForeColor = Color.Black;
             }
         }
 
-        private void textBoxPswd_KeyPress(object sender, KeyPressEventArgs e)
+        private void SetPlaceholder(object sender, EventArgs e)
         {
-            textBoxPswd.PasswordChar = '*';
+            TextBox textBox = sender as TextBox;
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = placeholders[textBox];
+                textBox.ForeColor = Color.Gray;
+            }
         }
 
-        private void textBoxPswd_MouseClick(object sender, MouseEventArgs e)
+        private void linkLabelRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (textBoxPswd.Text == "Şifre...")
-            {
-                textBoxPswd.Clear();
-            }
+            RegisterPage registerPage = new RegisterPage();
+            registerPage.Show();
+            this.Hide();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (textBoxUsername.Text.Trim() == "admin" && textBoxPswd.Text.Trim() == "admin")
+            string managerEmail = textBoxEmail.Text.Trim();
+            string managerPassword = textBoxPassword.Text.Trim();
+
+            if (db.ValidateManager(managerEmail, managerPassword))
             {
-                this.Hide();
                 MainPage mainPage = new MainPage();
                 mainPage.Show();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Hatalı kullanıcı adı veya şifre", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            msg = "Programı kapatmak istiyor musunuz?";
-            caption = "Emin misiniz?";
-            MessageBoxButtons buttonExit = MessageBoxButtons.YesNo;
-            MessageBoxIcon iconExit = MessageBoxIcon.Warning;
-
-            DialogResult result = MessageBox.Show(msg, caption, buttonExit, iconExit, MessageBoxDefaultButton.Button2);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
             }
         }
     }

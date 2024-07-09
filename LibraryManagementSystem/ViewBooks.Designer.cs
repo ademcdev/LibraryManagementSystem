@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonSearch = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxBookId = new System.Windows.Forms.TextBox();
             this.buttonDel = new System.Windows.Forms.Button();
@@ -79,32 +78,21 @@
             // textBoxSearch
             // 
             this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBoxSearch.Location = new System.Drawing.Point(423, 88);
+            this.textBoxSearch.Location = new System.Drawing.Point(458, 91);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(297, 38);
             this.textBoxSearch.TabIndex = 1;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(313, 97);
+            this.label2.Location = new System.Drawing.Point(309, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 25);
+            this.label2.Size = new System.Drawing.Size(143, 25);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Kitap Adı:";
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.Enabled = false;
-            this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonSearch.Location = new System.Drawing.Point(726, 90);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(91, 38);
-            this.buttonSearch.TabIndex = 3;
-            this.buttonSearch.Text = "Ara";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.label2.Text = "Kitap Adı Ara:";
             // 
             // panel2
             // 
@@ -301,7 +289,6 @@
             this.ClientSize = new System.Drawing.Size(1128, 827);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridViewBook);
-            this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.panel1);
@@ -326,7 +313,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.NumericUpDown numericUpDownbQuantity;
         private System.Windows.Forms.Button buttonCancel;

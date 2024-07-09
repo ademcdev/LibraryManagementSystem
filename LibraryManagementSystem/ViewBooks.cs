@@ -113,14 +113,28 @@ namespace LibraryManagementSystem
             dataGridViewBook.DataSource = dataTable;
         }
 
-        private void buttonSearch_Click(object sender, EventArgs e)
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             string searchTerm = textBoxSearch.Text.ToLower().Trim();
 
-            var filteredRows = dataGridViewBook.Rows.Cast<DataGridViewRow>().Where(row =>
-                row.Cells["bookName"].Value.ToString().ToLower().Contains(searchTerm)).ToList();
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                RefreshDataGridView();
+                return;
+            }
 
-            dataGridViewBook.DataSource = filteredRows.Count > 0 ? filteredRows.ToList() : null;
+            var filteredRows = dataTable.AsEnumerable().Where(row =>
+                row.Field<string>("bookName").ToLower().Contains(searchTerm) ||
+                row.Field<string>("bookAuthor").ToLower().Contains(searchTerm));
+
+            if (filteredRows.Any())
+            {
+                dataGridViewBook.DataSource = filteredRows.CopyToDataTable();
+            }
+            else
+            {
+                dataGridViewBook.DataSource = dataTable.Clone();
+            }
         }
     }
 }
