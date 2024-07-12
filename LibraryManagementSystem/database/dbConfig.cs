@@ -80,6 +80,7 @@ namespace LibraryManagementSystem.database
             {
                 using (MySqlConnection connection = GetConn())
                 {
+                    //startConn() 
                     connection.Open();
 
                     MySqlCommand cmd = new MySqlCommand(query, connection);
