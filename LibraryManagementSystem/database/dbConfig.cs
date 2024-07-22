@@ -363,7 +363,7 @@ namespace LibraryManagementSystem.database
 
                     if (!isAvailable)
                     {
-                        MessageBox.Show("Seçilen oyun şu anda alınabilir değil!");
+                        MessageBox.Show("Seçilen kitap şu anda alınabilir değil!");
                         return false;
                     }
 
